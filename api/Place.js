@@ -83,8 +83,11 @@ router.put("/:placeId", async (req, res) => {
         console.log(err)
       }
       else{
-        if(model.etat==='1') return "1";
-        else return "0";
+        //if(model.etat==='1') {console.log(model.etat); return model.etat; }
+        //else return 0;
+        
+        //console.log (model.etat);
+        return model.etat;
       }
     }
   );
