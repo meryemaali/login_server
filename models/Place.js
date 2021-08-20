@@ -15,6 +15,14 @@ const PlaceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  datedebut: {
+    type: Date,
+    required: false,
+  },
+  datefin: {
+    type: Date,
+    required: false,
+  },
   
 });
 
@@ -23,6 +31,8 @@ const validatePlace = (place) => {
     qr: yup.string().required(),
     etage: yup.string().required(),
     etat: yup.string().required(),
+    datedebut: yup.date(),
+    datefin: yup.date(),
     
   });
 

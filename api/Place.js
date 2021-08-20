@@ -11,6 +11,8 @@ if(error.message) res.status(400).send(error.message);
     qr: req.body.qr,
     etage: req.body.etage,
     etat: req.body.etat,
+    datedebut: req.body.datedebut,
+    datefin: req.body.datefin,
       });
 
   place
@@ -72,25 +74,18 @@ router.get ('/:placeId', async (req, res) => {
 });*/
 
 router.put("/:placeId", async (req, res) => {
+  try{
    const updatedPlace = await Place.findByIdAndUpdate( 
       req.params.placeId,
     { $set: { etat: 1 } },
     
-    { new: false },
-    function(err,model){
+    { new: false });
+    res.send(updatedPlace);
+   }
 
-      if(err){
-        console.log(err)
-      }
-      else{
-        //if(model.etat==='1') {console.log(model.etat); return model.etat; }
-        //else return 0;
-        
-        //console.log (model.etat);
-        return model.etat;
-      }
-    }
-  );
+  catch(error){
+    console.log(error.message);
+  }
   });
 
 //DELETE place BASED ON ID
