@@ -15,12 +15,17 @@ const ReservationSchema = new mongoose.Schema ({
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
 });
 
 const validateReservation = reservation => {
   const schema = yup.object ().shape ({
     datedebut: yup.string ().required (),
     datefin: yup.string ().required (),
+    email: yup.string ().required (),
     qr: yup.string ().required (),
   });
 

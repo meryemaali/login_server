@@ -11,6 +11,7 @@ router.post ('/', async (req, res) => {
     datedebut: req.body.datedebut,
     datefin: req.body.datefin,
     qr: req.body.qr,
+    email: req.body.email,
     
   });
 
@@ -49,6 +50,7 @@ router.put("/:reservationId", async (req, res) => {
     datedebut: req.body.datedebut,
     datefin: req.body.datefin,
     qr: req.body.qr, 
+    email: req.body.email,
     },
     { new: true }
   );
